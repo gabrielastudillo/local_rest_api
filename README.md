@@ -1,12 +1,12 @@
 # local_rest_api
 
-# Run the server (on the Pi):
+## Run the server (on the Pi):
 pip install -r requirements.txt
 export API_KEY=devkey
 uvicorn app:app --host 0.0.0.0 --port 8000
 
-# Test with curl (from laptop on same LAN):
-# Health
+## Test with curl (from laptop on same LAN):
+### Health
 curl http://pi.local:8000/api/v1/health
 
 # Read telemetry
