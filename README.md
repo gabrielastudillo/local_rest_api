@@ -9,7 +9,7 @@ pi-iot-api/
 └─ tests/
    └─ test_api.py
 ````
-##Code
+## Code
 Write the files devices.py and app.py
 
 ## Run the server (on the Pi):
