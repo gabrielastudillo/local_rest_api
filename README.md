@@ -1,12 +1,11 @@
 # local_rest_api
 
 # Run the server (on the Pi):
-python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 export API_KEY=devkey
 uvicorn app:app --host 0.0.0.0 --port 8000
 
-#Test with curl (from laptop on same LAN):
+# Test with curl (from laptop on same LAN):
 Health
 curl http://pi.local:8000/api/v1/health
 
