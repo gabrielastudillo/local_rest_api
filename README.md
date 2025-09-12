@@ -6,7 +6,7 @@ export API_KEY=devkey
 uvicorn app:app --host 0.0.0.0 --port 8000
 
 # Test with curl (from laptop on same LAN):
-Health
+## Health
 curl http://pi.local:8000/api/v1/health
 
 Read telemetry
