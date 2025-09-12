@@ -1,6 +1,6 @@
 # local_rest_api
 
-#Run the server (on the Pi):
+# Run the server (on the Pi):
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 export API_KEY=devkey
