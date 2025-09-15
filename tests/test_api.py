@@ -1,28 +1,31 @@
+"""
+Starter test file for IoT REST API.
+Tasks:
+1. Write a test for /health
+2. Write a test for /telemetry WITHOUT API key (should return 401)
+3. Write a test for /telemetry WITH API key (should return JSON)
+"""
+
+import pytest
 from fastapi.testclient import TestClient
 from app import app, API_KEY
 
 client = TestClient(app)
-H = {"x-api-key": API_KEY}
+HEADERS = {"x-api-key": API_KEY}
 
 def test_health():
-    r = client.get("/api/v1/health")
-    assert r.status_code == 200
-    assert r.text == "ok"
+    # TODO: call GET /health and check response code and content
+    # Hint: r = client.get("/api/v1/health")
+    pass
 
-def test_need_key():
-    r = client.get("/api/v1/telemetry")
-    assert r.status_code == 401
+def test_unauthorized():
+    # TODO: call GET /telemetry WITHOUT headers
+    # Expect status_code == 401
+    pass
 
-def test_telemetry_ok(monkeypatch):
-    # monkeypatch device calls so tests don't need hardware
-    from app import read_pot_voltage, button_pressed, led_state
-    monkeypatch.setattr("app.read_pot_voltage", lambda: 1.234)
-    monkeypatch.setattr("app.button_pressed", lambda: False)
-    monkeypatch.setattr("app.led_state", lambda: True)
-
-    r = client.get("/api/v1/telemetry", headers=H)
-    assert r.status_code == 200
-    j = r.json()
-    assert 0.0 <= j["pot_v"] <= 3.3
-    assert j["button"] in [True, False]
-    assert j["led"] in [True, False]
+def test_telemetry_with_key(monkeypatch):
+    #from app import
+    # TODO: monkeypatch sensor functions so test doesn't require real hardware
+    # Hint: monkeypatch.setattr("app.read_pot_voltage", lambda: 1.23)
+    # Then GET /telemetry with HEADERS
+    pass
