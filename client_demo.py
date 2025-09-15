@@ -1,8 +1,33 @@
-import requests, os
-API = os.getenv("API_URL", "http://pi.local:8000")
-KEY = os.getenv("API_KEY", "devkey")
-H = {"x-api-key": KEY}
+"""
+Starter client for the IoT REST API.
+Tasks:
+1. Complete the GET request to /telemetry
+2. Complete the POST request to /led
+3. Handle errors (e.g., connection refused, invalid JSON)
+"""
 
-print("Telemetry:", requests.get(f"{API}/api/v1/telemetry", headers=H, timeout=3).json())
-print("LED on:", requests.post(f"{API}/api/v1/led", headers=H, json={"state": True}, timeout=3).json())
-print("LED off:", requests.post(f"{API}/api/v1/led", headers=H, json={"state": False}, timeout=3).json())
+import requests, os
+
+API = "http://localhost:8000/api/v1"   # change if running on another host
+KEY = "devkey"                         # must match your API_KEY in the server
+HEADERS = {"x-api-key": KEY}
+
+def get_telemetry():
+    # TODO: perform a GET request to /telemetry and print the result
+    # Hint: requests.get(...)
+    pass
+
+def set_led(state: bool):
+    # TODO: perform a POST request to /led with JSON body {"state": state}
+    # Hint: requests.post(..., json=...)
+    pass
+
+if __name__ == "__main__":
+    print("=== Telemetry ===")
+    get_telemetry()
+
+    print("=== Turn LED on ===")
+    set_led(True)
+
+    print("=== Turn LED off ===")
+    set_led(False)
